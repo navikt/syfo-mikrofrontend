@@ -1,8 +1,6 @@
 # syfo-mikrofrontend
 
-Mikrofrontend for sykefraværsoppfølging
-
-Mikrofrontenden blir lastet opp til nav sin CDN ved push til main og har et manifest som deployes til Nais.
+Mikrofrontend for sykefraværsoppfølging. Appen blir lastet opp til nav sin CDN ved push til main og har et manifest som deployes til Nais.
 
 # Kom i gang
 
