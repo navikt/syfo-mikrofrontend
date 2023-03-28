@@ -5,7 +5,7 @@ on:
       - "main"
       - "dev-*"
 env:
-  "IMAGE": "ghcr.io/${{ github.repository }}/tms-mikrofrontend-template:${{ github.sha }}"
+  "IMAGE": "ghcr.io/${{ github.repository }}/syfo-mikrofrontend:${{ github.sha }}"
 jobs:
   build:
     name: "build"
@@ -35,7 +35,7 @@ jobs:
 #        with:
 #          cdn-team-name: mitt-team-navn
 #          source: ./dist/
-#          destination: "tms-mikrofrontend-template"
+#          destination: "syfo-mikrofrontend"
 
       - name: "Build and publish Docker image"
         run: "docker build --pull --tag ${IMAGE} . && echo $GITHUB_TOKEN | docker login\

@@ -1,4 +1,3 @@
-import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { viteMockServe } from "vite-plugin-mock";
 import { rollupImportMapPlugin } from "rollup-plugin-import-map";
@@ -28,7 +27,7 @@ export default ({ command }) => ({
       input: resolve(__dirname, "src/Mikrofrontend.tsx"),
       preserveEntrySignatures: "exports-only",
       output: {
-        entryFileNames: "tms-mikrofrontend-template.[hash].js",
+        entryFileNames: "syfo-mikrofrontend.[hash].js",
         format: "esm",
       },
     },
