@@ -2,9 +2,9 @@ apiVersion: "nais.io/v1alpha1"
 kind: "Application"
 metadata:
   name: syfo-mikrofrontend
-  namespace: min-side
+  namespace: team-esyfo
   labels:
-    team: min-side
+    team: team-esyfo
 spec:
   envFrom:
     - secret: syfo-mikrofrontend-secrets

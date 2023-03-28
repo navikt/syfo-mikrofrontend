@@ -1,12 +1,17 @@
 import react from "@vitejs/plugin-react";
 import { viteMockServe } from "vite-plugin-mock";
+// @ts-ignore
 import { rollupImportMapPlugin } from "rollup-plugin-import-map";
 import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js";
 import terser from "@rollup/plugin-terser";
 import { resolve } from "path";
 import importmap from "./importmap.json";
 
-export default ({ command }) => ({
+interface Props {
+  command: any;
+}
+
+export default ({ command }: Props) => ({
   plugins: [
     react(),
     terser(),
