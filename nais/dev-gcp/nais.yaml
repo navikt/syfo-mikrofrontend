@@ -6,8 +6,6 @@ metadata:
   labels:
     team: team-esyfo
 spec:
-  envFrom:
-    - secret: syfo-mikrofrontend-secrets
   image: {{ image }}
   port: 8080
   liveness:
