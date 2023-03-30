@@ -8,6 +8,12 @@ metadata:
 spec:
   image: {{ image }}
   port: 8080
+  tokenx:
+    enabled: true
+  idporten:
+    enabled: true
+    sidecar:
+      enabled: true
   liveness:
     path: /syfo-mikrofrontend/internal/isAlive
     initialDelay: 10
@@ -22,6 +28,11 @@ spec:
     max: 4
   ingresses:
     - "https://www.dev.nav.no/syfo-mikrofrontend"
+  env:
+    - name: ISDIALOGMOTE_HOST
+      value: "https://isdialogmote.dev.nav.no"
+    - name: ISDIALOGMOTE_CLIENT_ID
+      value: "dev-gcp:teamsykefravr:isdialogmote"
   resources:
     limits:
       cpu: "3"
