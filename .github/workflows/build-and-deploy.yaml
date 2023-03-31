@@ -33,12 +33,13 @@ jobs:
           source: ./dist/
           destination: "syfo-mikrofrontend"
 
-      - name: "Build and publish Docker image"
-        run: "docker build --pull --tag ${IMAGE} . && echo $GITHUB_TOKEN | docker login\
-          \ --username $GITHUB_REPOSITORY --password-stdin https://ghcr.io\
-          \ && docker push ${IMAGE}"
-        env:
-          "GITHUB_TOKEN": "${{ secrets.GITHUB_TOKEN }}"
+      - name: Build and push docker image
+      - uses: nais/docker-build-push@v0
+        id: docker-build-push
+        with:
+          team: team-esyfo
+          identity_provider: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }}
+          project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }}
 
   deploy-dev:
     runs-on: "ubuntu-latest"
