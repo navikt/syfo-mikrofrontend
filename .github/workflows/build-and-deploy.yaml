@@ -1,7 +1,5 @@
 name: "Build and deploy"
 on: push
-env:
-  "IMAGE": "ghcr.io/${{ github.repository }}/syfo-mikrofrontend:${{ github.sha }}"
 jobs:
   build:
     name: "build"
