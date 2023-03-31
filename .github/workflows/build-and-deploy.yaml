@@ -38,6 +38,8 @@ jobs:
           team: team-esyfo
           identity_provider: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }}
           project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }}
+    outputs:
+      image: ${{ steps.docker-build-push.outputs.image }}
 
   deploy-dev:
     runs-on: "ubuntu-latest"
@@ -50,6 +52,7 @@ jobs:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: dev-gcp
           RESOURCE: nais/dev-gcp/nais.yaml
+          VAR: image=${{ needs.build.outputs.image }},version=${{ github.sha }}
 
   deploy-prod:
     if: github.ref == 'refs/heads/main' && false
@@ -63,3 +66,4 @@ jobs:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: prod-gcp
           RESOURCE: nais/prod-gcp/nais.yaml
+          VAR: image=${{ needs.build.outputs.image }},version=${{ github.sha }}
