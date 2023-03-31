@@ -34,7 +34,7 @@ jobs:
           destination: "syfo-mikrofrontend"
 
       - name: Build and push docker image
-      - uses: nais/docker-build-push@v0
+        uses: nais/docker-build-push@v0
         id: docker-build-push
         with:
           team: team-esyfo
