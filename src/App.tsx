@@ -9,7 +9,7 @@ function App() {
 
   return (
     <section>
-      <Komponent tekst={data?.tekst} />
+      <Komponent tekst={`Har kommende dialogmøte: ${data?.harKommendeDialogmote}`} />
     </section>
   );
 }
