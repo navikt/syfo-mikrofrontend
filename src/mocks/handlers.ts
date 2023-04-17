@@ -1,12 +1,8 @@
 import { rest } from "msw";
+import { dialogmoteInnkallingScenario } from "./fixtures/dialogmote/dialogmoteInnkallingScenario";
+
 export const handlers = [
-  rest.get("/api/dialogmote", (req, res, ctx) => {
-    //todo finn ut hva vi skal returnere, om vi skal lage nytt endepunkt eller hva
-    return res(
-      ctx.status(200),
-      ctx.json({
-        harKommendeDialogmote: false,
-      })
-    );
+  rest.get("*/api/v2/arbeidstaker/brev", (req, res, ctx) => {
+    return res(ctx.status(200), ctx.json(dialogmoteInnkallingScenario));
   }),
 ];

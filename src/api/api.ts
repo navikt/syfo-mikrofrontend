@@ -1,4 +1,4 @@
-export const fetcher = async (path: string) => {
+export const get = async (path: string) => {
   const response = await fetch(path, {
     method: "GET",
     credentials: "include",

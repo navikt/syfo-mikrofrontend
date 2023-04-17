@@ -1,14 +1,13 @@
 /// <reference types="vitest" />
 import react from "@vitejs/plugin-react";
 import type { UserConfig } from "vite";
-import { defineConfig, ViteDevServer } from "vite";
+import { defineConfig } from "vite";
 // @ts-ignore
 import { rollupImportMapPlugin } from "rollup-plugin-import-map";
 import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js";
 import terser from "@rollup/plugin-terser";
 import { resolve } from "path";
 import importmap from "./importmap.json";
-import { getIsDialogmoteTokenFromRequest } from "./server/auth/tokenx/getTokenXFromRequest";
 
 export default defineConfig({
   plugins: [
@@ -20,31 +19,7 @@ export default defineConfig({
       enforce: "pre",
       apply: "build",
     },
-    {
-      name: "configure-request-headers",
-      configureServer: (server: ViteDevServer) => {
-        server.middlewares.use(async (_req, res, next) => {
-          if (_req.originalUrl?.includes("/api/dialogmote")) {
-            const tokenX = await getIsDialogmoteTokenFromRequest(_req);
-            res.setHeader("Authorization", `Bearer ${tokenX}`);
-          }
-          next();
-        });
-      },
-    },
   ],
-  server: {
-    proxy: {
-      "/api/dialogmote": {
-        target:
-          process.env.NODE_ENV === "development"
-            ? `https://localhost:3000/api/v2/arbeidstaker/brev`
-            : `${process.env.ISDIALOGMOTE_HOST}/api/v2/arbeidstaker/brev`,
-        changeOrigin: true,
-        secure: false,
-      },
-    },
-  },
   build: {
     manifest: true,
     rollupOptions: {
