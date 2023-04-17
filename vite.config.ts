@@ -51,7 +51,7 @@ export default defineConfig({
       input: resolve(__dirname, "src/Mikrofrontend.tsx"),
       preserveEntrySignatures: "exports-only",
       output: {
-        entryFileNames: "syfo-mikrofrontend.[hash].js",
+        entryFileNames: "dialogmote-mikrofrontend.[hash].js",
         format: "esm",
       },
     },

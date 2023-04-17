@@ -17,8 +17,8 @@ type EnvUrl = { development: string; production: string; local: string };
 
 const API_URL: EnvUrl = {
   local: "http://localhost:3000/api/dialogmote",
-  development: `https://www.dev.nav.no/syfo-mikrofrontend/api/dialogmote`,
-  production: `https://www.nav.no/syfo-mikrofrontend/api/dialogmote`,
+  development: `https://www.dev.nav.no/dialogmote-mikrofrontend/api/dialogmote`,
+  production: `https://www.nav.no/dialogmote-mikrofrontend/api/dialogmote`,
 };
 
 export const apiUrl = API_URL[getEnvironment()];

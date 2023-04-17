@@ -1,7 +1,7 @@
 apiVersion: "nais.io/v1alpha1"
 kind: "Application"
 metadata:
-  name: syfo-mikrofrontend
+  name: dialogmote-mikrofrontend
   namespace: team-esyfo
   labels:
     team: team-esyfo
@@ -15,19 +15,19 @@ spec:
     sidecar:
       enabled: true
   liveness:
-    path: /syfo-mikrofrontend/internal/isAlive
+    path: /dialogmote-mikrofrontend/internal/isAlive
     initialDelay: 10
   readiness:
-    path: /syfo-mikrofrontend/internal/isReady
+    path: /dialogmote-mikrofrontend/internal/isReady
     initialDelay: 10
   prometheus:
     enabled: true
-    path: /syfo-mikrofrontend/internal/metrics
+    path: /dialogmote-mikrofrontend/internal/metrics
   replicas:
     min: 2
     max: 4
   ingresses:
-    - "https://www.dev.nav.no/syfo-mikrofrontend"
+    - "https://www.dev.nav.no/dialogmote-mikrofrontend"
   env:
     - name: ISDIALOGMOTE_HOST
       value: "https://isdialogmote.dev.nav.no"
