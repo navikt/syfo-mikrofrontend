@@ -1,6 +1,7 @@
 import { v4 as uuidv4 } from "uuid";
 import { BrevType, DocumentComponent } from "../../../types/client/brev";
 import { Brev } from "../../../types/shared/brev";
+import { SvarResponsDTO } from "../../../schema/brevSchema";
 
 export class BrevBuilder {
   private readonly brev: Brev;
@@ -50,6 +51,11 @@ export class BrevBuilder {
 
   withDocument(document: DocumentComponent[]) {
     this.brev.document = document;
+    return this;
+  }
+
+  withSvar(svar: SvarResponsDTO) {
+    this.brev.svar = svar;
     return this;
   }
 
