@@ -5,6 +5,7 @@ import "@navikt/ds-css";
 import { Fetcher } from "swr";
 import { Brev } from "./types/shared/brev";
 import { DialogmoteInnkalt } from "./components/DialogmoteInnkalt";
+import { DialogmoteNyttTidSted } from "./components/DialogmoteNyttTidSted";
 
 function App() {
   const fetchBrev: Fetcher<Brev[], string> = (path) => get(path);
@@ -18,7 +19,7 @@ function App() {
       case "INNKALT":
         return <DialogmoteInnkalt brev={latestBrev} />;
       case "NYTT_TID_STED":
-        return <div>todo nytt tid</div>;
+        return <DialogmoteNyttTidSted brev={latestBrev} />;
       default:
         return null;
     }

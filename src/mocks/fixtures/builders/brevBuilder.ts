@@ -38,6 +38,11 @@ export class BrevBuilder {
     return this;
   }
 
+  withSted(sted: string): BrevBuilder {
+    this.brev.sted = sted;
+    return this;
+  }
+
   withTid(tid: Date): BrevBuilder {
     this.brev.tid = tid.toISOString();
     return this;
