@@ -8,7 +8,7 @@ interface Props {
 }
 export const MoteinnkallingLinkPanel = ({ header, children }: Props) => {
   return (
-    <LinkPanel className="bg-[#f7f7f7]" href={`${dialogmoteUrl}/moteinnkalling`} border>
+    <LinkPanel className="bg-[#f7f7f7] rounded-lg border-none" href={`${dialogmoteUrl}/moteinnkalling`} border>
       <div className="flex flex-col space-y-4">
         <LinkPanel.Title>{header}</LinkPanel.Title>
         {children}
