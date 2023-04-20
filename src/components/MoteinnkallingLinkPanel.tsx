@@ -1,6 +1,19 @@
 import { LinkPanel } from "@navikt/ds-react";
 import { dialogmoteUrl } from "../api/urls";
 import { ReactNode } from "react";
+import styled from "styled-components";
+
+const StyledLinkPanel = styled(LinkPanel)`
+  background-color: #f7f7f7;
+  border: none;
+  border-radius: 0.5rem;
+`;
+
+const LinkPanelContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+`;
 
 interface Props {
   header: string;
@@ -8,11 +21,11 @@ interface Props {
 }
 export const MoteinnkallingLinkPanel = ({ header, children }: Props) => {
   return (
-    <LinkPanel className="bg-[#f7f7f7] rounded-lg border-none" href={`${dialogmoteUrl}/moteinnkalling`} border>
-      <div className="flex flex-col space-y-4">
+    <StyledLinkPanel href={`${dialogmoteUrl}/moteinnkalling`} border>
+      <LinkPanelContent>
         <LinkPanel.Title>{header}</LinkPanel.Title>
         {children}
-      </div>
-    </LinkPanel>
+      </LinkPanelContent>
+    </StyledLinkPanel>
   );
 };
