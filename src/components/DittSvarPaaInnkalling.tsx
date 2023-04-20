@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react";
-import { Alert, BodyLong } from "@navikt/ds-react";
+import { BodyLong } from "@navikt/ds-react";
 import { SvarType } from "../types/shared/brev";
 
 const texts = {
@@ -11,30 +11,6 @@ const texts = {
     "Du har svart at du ønsker å avlyse dette dialogmøtet.\n\nNAV-kontoret vil vurdere ønsket ditt. Du får et nytt varsel hvis møtet avlyses. Hvis du ikke får noe nytt varsel, må du fortsatt stille til møtet i denne innkallingen.\n\nSelv om du ønsker å avlyse, kan det hende NAV-kontoret likevel konkluderer med at et møte er nødvendig.",
 };
 
-const JegKommer = (): ReactElement => {
-  return (
-    <Alert variant="success" aria-live="polite">
-      <BodyLong>{texts.svartKommer}</BodyLong>
-    </Alert>
-  );
-};
-
-const JegVilEndre = (): ReactElement => {
-  return (
-    <Alert variant="success" aria-live="polite">
-      <BodyLong>{texts.svartVilEndre}</BodyLong>
-    </Alert>
-  );
-};
-
-const JegVilAvlyse = (): ReactElement => {
-  return (
-    <Alert variant="success" aria-live="polite">
-      <BodyLong>{texts.svartKommerIkke}</BodyLong>
-    </Alert>
-  );
-};
-
 interface SvarProps {
   svarType: SvarType;
 }
@@ -42,11 +18,11 @@ interface SvarProps {
 const DittSvarPaaInnkalling = ({ svarType }: SvarProps): ReactElement | null => {
   switch (svarType) {
     case "KOMMER":
-      return <JegKommer />;
+      return <BodyLong>{texts.svartKommer}</BodyLong>;
     case "NYTT_TID_STED":
-      return <JegVilEndre />;
+      return <BodyLong>{texts.svartVilEndre}</BodyLong>;
     case "KOMMER_IKKE":
-      return <JegVilAvlyse />;
+      return <BodyLong>{texts.svartKommerIkke}</BodyLong>;
     default:
       return null;
   }
