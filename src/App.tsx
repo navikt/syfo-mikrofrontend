@@ -19,7 +19,7 @@ function App() {
       case "INNKALT":
         return <DialogmoteInnkalt brev={latestBrev} />;
       case "NYTT_TID_STED":
-        return <DialogmoteNyttTidSted brev={latestBrev} />;
+        return <DialogmoteNyttTidSted />;
       default:
         return null;
     }

@@ -1,4 +1,5 @@
 import { rest } from "msw";
+import { dialogmoteInnkallingSvartScenario } from "./fixtures/dialogmote/dialogmoteInnkallingSvartScenario";
 import { dialogmoteInnkallingScenario } from "./fixtures/dialogmote/dialogmoteInnkallingScenario";
 import { dialogmoteNyttTidStedScenario } from "./fixtures/dialogmote/dialogmoteEndretScenario";
 

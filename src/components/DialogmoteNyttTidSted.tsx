@@ -1,13 +1,11 @@
-import { Brev } from "../types/shared/brev";
-import Komponent from "./Komponent";
-import { getLongDateFormat } from "../utils/dateUtils";
+import { BodyLong } from "@navikt/ds-react";
+import React from "react";
+import { MoteinnkallingLinkPanel } from "./MoteinnkallingLinkPanel";
 
-interface Props {
-  brev: Brev;
-}
-
-export const DialogmoteNyttTidSted = ({ brev }: Props) => {
-  const tidspunkt = getLongDateFormat(brev.tid);
-  const sted = brev.sted;
-  return <Komponent tekst={`Veileder har forandret møtetidspunkt til: ${tidspunkt}, ${sted}.`} />;
+export const DialogmoteNyttTidSted = () => {
+  return (
+    <MoteinnkallingLinkPanel header="Dialogmøtet med NAV er flyttet">
+      <BodyLong>NAV trenger å vite om du kan komme til møtet</BodyLong>
+    </MoteinnkallingLinkPanel>
+  );
 };
