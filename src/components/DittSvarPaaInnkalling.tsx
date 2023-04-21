@@ -4,7 +4,6 @@ import { SvarType } from "../types/shared/brev";
 
 const texts = {
   svartKommer: "Du har svart at du kommer til dette dialogmøtet.",
-  taKontakt: "Ta kontakt hvis tidspunktet likevel ikke passer.",
   svartVilEndre:
     "Du har svart at du ønsker å endre tidspunkt eller sted for dette dialogmøtet.\n\nNAV-kontoret vil vurdere ønsket ditt. Du får et nytt varsel hvis møtet endres. Hvis du ikke får et nytt varsel, er det fortsatt tidspunktet og stedet i denne innkallingen som gjelder.",
   svartKommerIkke:
