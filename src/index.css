@@ -1,7 +1,4 @@
 @import "../node_modules/@navikt/ds-css";
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 html,
 body {
