@@ -1,26 +1,20 @@
 import { Brev } from "../types/shared/brev";
-import { BodyLong } from "@navikt/ds-react";
 import React from "react";
-import DittSvarPaaInnkalling from "./DittSvarPaaInnkalling";
-import { MoteinnkallingLinkPanel } from "./MoteinnkallingLinkPanel";
-import { getLongDateFormat } from "../utils/dateUtils";
+import { getFormattedMonth, getFormattedTime } from "../utils/dateUtils";
+import { DialogmotePanel } from "./DialogmotePanel";
 
 interface Props {
   brev: Brev;
 }
 
 export const DialogmoteInnkalt = ({ brev }: Props) => {
-  if (brev.svar) {
-    return (
-      <MoteinnkallingLinkPanel header={`Du er innkalt til dialogmøte ${getLongDateFormat(brev.tid)}`}>
-        <DittSvarPaaInnkalling svarType={brev.svar.svarType} />
-      </MoteinnkallingLinkPanel>
-    );
-  }
-
   return (
-    <MoteinnkallingLinkPanel header="Du er innkalt til dialogmøte">
-      <BodyLong>NAV trenger å vite om du kan komme til møtet</BodyLong>
-    </MoteinnkallingLinkPanel>
+    <DialogmotePanel
+      header={"Dialogmøte"}
+      attending={brev.svar?.svarType || null}
+      place={brev.sted}
+      date={getFormattedMonth(brev.tid)}
+      time={getFormattedTime(brev.tid)}
+    />
   );
 };

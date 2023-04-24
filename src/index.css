@@ -12,7 +12,7 @@ body {
 
 main {
   margin: auto;
-  max-width: 808px;
+  max-width: 444px;
   min-height: 100vh;
   display: grid;
   grid-template-columns: 1fr;

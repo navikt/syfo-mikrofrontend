@@ -1,4 +1,4 @@
-import { LinkPanel } from "@navikt/ds-react";
+import { Heading, LinkPanel } from "@navikt/ds-react";
 import { dialogmoteUrl } from "../api/urls";
 import { ReactNode } from "react";
 import styled from "styled-components";
@@ -23,7 +23,9 @@ export const MoteinnkallingLinkPanel = ({ header, children }: Props) => {
   return (
     <StyledLinkPanel href={`${dialogmoteUrl}/moteinnkalling`} border>
       <LinkPanelContent>
-        <LinkPanel.Title>{header}</LinkPanel.Title>
+        <Heading size={"small"} level={"2"}>
+          {header}
+        </Heading>
         {children}
       </LinkPanelContent>
     </StyledLinkPanel>
