@@ -7,5 +7,5 @@ interface Props {
 }
 
 export const StedBoks = ({ sted }: Props) => {
-  return <InfoBox text={sted} icon={<PinIcon title="a11y-title" fontSize="1.5rem" />} background={"white"} />;
+  return <InfoBox text={sted} icon={<PinIcon title="a11y-title" fontSize="1.5rem" />} background={"#cce1ff"} />;
 };

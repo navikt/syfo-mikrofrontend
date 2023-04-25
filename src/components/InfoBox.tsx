@@ -24,6 +24,11 @@ const Content = styled.div`
   gap: 0.5rem;
 `;
 
+const IconWrapper = styled.div`
+  display: flex;
+  flex-shrink: 0;
+`;
+
 interface Props {
   icon: ReactElement;
   text: string;
@@ -34,7 +39,7 @@ export const InfoBox = ({ icon, text, background }: Props) => {
   return (
     <StyledBoks background={background}>
       <Content>
-        {icon}
+        <IconWrapper>{icon}</IconWrapper>
         <BodyShort>{text}</BodyShort>
       </Content>
     </StyledBoks>

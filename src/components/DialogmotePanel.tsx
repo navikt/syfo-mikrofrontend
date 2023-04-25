@@ -5,6 +5,7 @@ import { dialogmoteUrl } from "../api/urls";
 import React from "react";
 import { AttendingDialogmote } from "./deltakelseBoks/AttendingDialogmote";
 import { StedBoks } from "./stedBoks/StedBoks";
+import { Column } from "./Column";
 
 const StyledLinkPanel = styled(LinkPanel)`
   .navds-link-panel__content {
@@ -20,12 +21,6 @@ const LinkPanelContent = styled.div`
   flex-direction: row;
 `;
 
-const DialogmoteColumn = styled.div`
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-`;
-
 interface Props {
   header: string;
   date: string;
@@ -38,7 +33,7 @@ export const DialogmotePanel = ({ header, date, time, place, attending }: Props)
   return (
     <StyledLinkPanel href={`${dialogmoteUrl}/moteinnkalling`} border>
       <LinkPanelContent>
-        <DialogmoteColumn>
+        <Column>
           <Heading size={"small"} level={"2"}>
             {header}
           </Heading>
@@ -46,12 +41,12 @@ export const DialogmotePanel = ({ header, date, time, place, attending }: Props)
             {date}
           </Heading>
           <BodyShort>Klokka: {time}</BodyShort>
-        </DialogmoteColumn>
+        </Column>
 
-        <DialogmoteColumn>
+        <Column gap={"0.5rem"}>
           <AttendingDialogmote attending={attending} />
           <StedBoks sted={place} />
-        </DialogmoteColumn>
+        </Column>
       </LinkPanelContent>
     </StyledLinkPanel>
   );

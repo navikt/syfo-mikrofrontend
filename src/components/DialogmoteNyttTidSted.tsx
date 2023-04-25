@@ -1,11 +1,20 @@
-import { BodyLong } from "@navikt/ds-react";
 import React from "react";
-import { MoteinnkallingLinkPanel } from "./MoteinnkallingLinkPanel";
+import { getFormattedMonth, getFormattedTime } from "../utils/dateUtils";
+import { DialogmotePanel } from "./DialogmotePanel";
+import { Brev } from "../types/shared/brev";
 
-export const DialogmoteNyttTidSted = () => {
+interface Props {
+  brev: Brev;
+}
+
+export const DialogmoteNyttTidSted = ({ brev }: Props) => {
   return (
-    <MoteinnkallingLinkPanel header="Dialogmøtet med NAV er flyttet">
-      <BodyLong>NAV trenger å vite om du kan komme til møtet</BodyLong>
-    </MoteinnkallingLinkPanel>
+    <DialogmotePanel
+      header={"Dialogmøtet med NAV er flyttet"}
+      attending={brev.svar?.svarType || null}
+      place={brev.sted}
+      date={getFormattedMonth(brev.tid)}
+      time={getFormattedTime(brev.tid)}
+    />
   );
 };
