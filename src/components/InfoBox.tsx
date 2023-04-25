@@ -40,7 +40,7 @@ export const InfoBox = ({ icon, text, background }: Props) => {
     <StyledBoks background={background}>
       <Content>
         <IconWrapper>{icon}</IconWrapper>
-        <BodyShort>{text}</BodyShort>
+        <BodyShort size={"small"}>{text}</BodyShort>
       </Content>
     </StyledBoks>
   );
