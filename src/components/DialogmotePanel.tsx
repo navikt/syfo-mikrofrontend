@@ -21,6 +21,10 @@ const LinkPanelContent = styled.div`
   flex-direction: row;
 `;
 
+const BottomAlignedBodyShort = styled(BodyShort)`
+  margin-top: auto;
+`;
+
 interface Props {
   header: string;
   date: string;
@@ -37,10 +41,10 @@ export const DialogmotePanel = ({ header, date, time, place, attending }: Props)
           <Heading size={"small"} level={"2"}>
             {header}
           </Heading>
-          <Heading spacing={true} size={"large"} level={"2"}>
+          <Heading size={"large"} level={"2"}>
             {date}
           </Heading>
-          <BodyShort>Klokka: {time}</BodyShort>
+          <BottomAlignedBodyShort>Klokka: {time}</BottomAlignedBodyShort>
         </Column>
 
         <Column gap={"0.5rem"}>
