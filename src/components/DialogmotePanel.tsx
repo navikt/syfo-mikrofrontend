@@ -29,6 +29,10 @@ const HeadingLighter = styled(Heading)`
   font-weight: var(--a-font-weight-regular);
 `;
 
+const HeadingSpacing = styled(Heading)`
+  padding-right: 1rem;
+`;
+
 interface Props {
   header: string;
   date: string;
@@ -42,9 +46,9 @@ export const DialogmotePanel = ({ header, date, time, place, attending }: Props)
     <StyledLinkPanel href={`${dialogmoteUrl}/moteinnkalling`} border>
       <LinkPanelContent>
         <Column>
-          <Heading size={"small"} level={"2"}>
+          <HeadingSpacing size={"small"} level={"2"}>
             {header}
-          </Heading>
+          </HeadingSpacing>
           <HeadingLighter size={"large"} level={"2"}>
             {date}
           </HeadingLighter>

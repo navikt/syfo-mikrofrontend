@@ -13,7 +13,7 @@ const innkallingsBrev = new BrevBuilder()
 
 const nyttTidStedBrev = new BrevBuilder()
   .witUuid("126")
-  .withBrevtype("INNKALT")
+  .withBrevtype("NYTT_TID_STED")
   .withCreatedAt(new Date(2026, 3, 28))
   .withTid(new Date(2026, 4, 17))
   .withSted("Slottsplassen 1")
