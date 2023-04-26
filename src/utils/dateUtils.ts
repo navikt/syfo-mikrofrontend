@@ -11,6 +11,26 @@ export const getLongDateFormat = (date: string | number | Date) => {
   return dateObject.toLocaleDateString("nb-NO", options);
 };
 
+export const getFormattedMonth = (date: string | number | Date) => {
+  const dateObject = new Date(date);
+
+  const options: Intl.DateTimeFormatOptions = {
+    day: "2-digit",
+    month: "long",
+  };
+  return dateObject.toLocaleDateString("nb-NO", options);
+};
+
+export const getFormattedTime = (date: string | number | Date) => {
+  const dateObject = new Date(date);
+
+  const options: Intl.DateTimeFormatOptions = {
+    hour: "2-digit",
+    minute: "2-digit",
+  };
+  return dateObject.toLocaleTimeString("nb-NO", options);
+};
+
 export const getFullDateFormat = (date: string | number | Date) => {
   const dateObject = new Date(date);
 
