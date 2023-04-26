@@ -23,7 +23,7 @@ const API_URL: EnvUrl = {
 
 const DIALOGMOTE_URL: EnvUrl = {
   local: "http://localhost:3000/syk/dialogmoter/sykmeldt",
-  development: `https://www-gcp.dev.nav.no/syk/dialogmoter/sykmeldt`,
+  development: `https://www.ekstern.dev.nav.no/syk/dialogmoter/sykmeldt`,
   production: `https://www.nav.no/syk/dialogmoter/sykmeldt`,
 };
 
