@@ -25,6 +25,10 @@ const BottomAlignedBodyShort = styled(BodyShort)`
   margin-top: auto;
 `;
 
+const HeadingLighter = styled(Heading)`
+  font-weight: var(--a-font-weight-regular);
+`;
+
 interface Props {
   header: string;
   date: string;
@@ -41,9 +45,9 @@ export const DialogmotePanel = ({ header, date, time, place, attending }: Props)
           <Heading size={"small"} level={"2"}>
             {header}
           </Heading>
-          <Heading size={"large"} level={"2"}>
+          <HeadingLighter size={"large"} level={"2"}>
             {date}
-          </Heading>
+          </HeadingLighter>
           <BottomAlignedBodyShort>Klokka: {time}</BottomAlignedBodyShort>
         </Column>
 
