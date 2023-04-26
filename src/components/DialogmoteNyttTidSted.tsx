@@ -10,7 +10,7 @@ interface Props {
 export const DialogmoteNyttTidSted = ({ brev }: Props) => {
   return (
     <DialogmotePanel
-      header={"Dialogmøtet med NAV er flyttet"}
+      header={"Dialogmøtet er flyttet"}
       attending={brev.svar?.svarType || null}
       place={brev.sted}
       date={getFormattedMonth(brev.tid)}
