@@ -7,7 +7,7 @@ export const JegDeltarBoks = () => {
     <InfoBox
       text="Ja, jeg deltar"
       icon={<CheckmarkCircleIcon title="a11y-title" fontSize="1.5rem" />}
-      background={"var(--surface-success-subtle-hover, #99dead)"}
+      background={"var(--surface-success-subtle, #CCF1D6);"}
     />
   );
 };
