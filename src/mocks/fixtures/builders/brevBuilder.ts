@@ -16,7 +16,7 @@ export class BrevBuilder {
       lestDato: null,
       videoLink: null,
       fritekst: "Yoyo",
-      sted: "Ørsta Rådhus",
+      sted: "NAV Asker, Erteløkka 9",
       tid: new Date().toISOString(),
       document: [],
       virksomhetsnummer: "234",
