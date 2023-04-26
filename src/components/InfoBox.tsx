@@ -20,7 +20,7 @@ export const StyledBoks = styled.div<StylingProps>`
 
 const Content = styled.div`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   flex-wrap: nowrap;
   gap: 0.5rem;
 `;
