@@ -1,34 +1,8 @@
-import styled from "styled-components";
 import { BodyShort } from "@navikt/ds-react";
 import React, { ReactElement } from "react";
-
-interface StylingProps {
-  background: string;
-}
-
-export const StyledBoks = styled.div<StylingProps>`
-  display: flex;
-  padding: 16px 20px;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 16px;
-  align-self: stretch;
-  border-radius: 4px;
-  background: ${(props) => props.background};
-`;
-
-const Content = styled.div`
-  display: flex;
-  align-items: flex-start;
-  flex-wrap: nowrap;
-  gap: 0.5rem;
-`;
-
-const IconWrapper = styled.div`
-  display: flex;
-  flex-shrink: 0;
-`;
+import { BaseBox } from "./BaseBox";
+import { IconWrapper } from "../icon/IconWrapper";
+import { Row } from "../row/Row";
 
 interface Props {
   icon: ReactElement;
@@ -38,11 +12,11 @@ interface Props {
 
 export const InfoBox = ({ icon, text, background }: Props) => {
   return (
-    <StyledBoks background={background}>
-      <Content>
+    <BaseBox background={background}>
+      <Row>
         <IconWrapper>{icon}</IconWrapper>
         <BodyShort size={"small"}>{text}</BodyShort>
-      </Content>
-    </StyledBoks>
+      </Row>
+    </BaseBox>
   );
 };
