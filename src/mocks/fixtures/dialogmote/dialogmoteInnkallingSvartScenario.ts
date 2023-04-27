@@ -9,7 +9,7 @@ const innkallingsBrevMedSvar = new BrevBuilder()
   .withCreatedAt(leggTilDagerPaDato(new Date(), -7))
   .withTid(leggTilDagerPaDato(new Date(), 40))
   .withDocument(moteinnkallingDocument)
-  .withSvar({ svarType: "NYTT_TID_STED", svarTekst: "Jeg kommer ikke!", svarTidspunkt: new Date().toISOString() })
+  .withSvar({ svarType: "KOMMER_IKKE", svarTekst: "Jeg kommer ikke!", svarTidspunkt: new Date().toISOString() })
   .build();
 
 export const dialogmoteInnkallingSvartScenario: Brev[] = [innkallingsBrevMedSvar];

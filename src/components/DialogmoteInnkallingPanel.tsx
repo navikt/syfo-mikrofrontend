@@ -5,6 +5,8 @@ import { OnskerAvlysePanel } from "./panels/OnskerAvlysePanel";
 import { OnskerEndreTidStedPanel } from "./panels/OnskerEndreTidStedPanel";
 import { IkkeSvartPanel } from "./panels/IkkeSvartPanel";
 
+const innkallingText = "Du har mottatt en innkalling til Dialogmøte.";
+
 interface Props {
   date: string;
   place: string;
@@ -14,12 +16,12 @@ interface Props {
 export const DialogmoteInnkallingPanel = ({ date, place, attending }: Props) => {
   switch (attending) {
     case "KOMMER":
-      return <JegKommerPanel date={date} place={place} />;
+      return <JegKommerPanel infoText={innkallingText} date={date} place={place} />;
     case "KOMMER_IKKE":
-      return <OnskerAvlysePanel place={place} />;
+      return <OnskerAvlysePanel date={date} place={place} />;
     case "NYTT_TID_STED":
-      return <OnskerEndreTidStedPanel />;
+      return <OnskerEndreTidStedPanel date={date} place={place} />;
     default:
-      return <IkkeSvartPanel date={date} place={place} />;
+      return <IkkeSvartPanel infoText={innkallingText} date={date} place={place} />;
   }
 };
