@@ -1,4 +1,4 @@
-import { InfoBox } from "../InfoBox";
+import { InfoBox } from "../infobox/InfoBox";
 import React from "react";
 import { CheckmarkCircleIcon } from "@navikt/aksel-icons";
 
