@@ -18,7 +18,7 @@ const nyttTidStedBrev = new BrevBuilder()
   .withTid(new Date(2026, 4, 17))
   .withSted("Slottsplassen 1")
   .withDocument(nyttTidStedDocument)
-  .withSvar({ svarType: "KOMMER", svarTekst: "Jeg kommer ikke!", svarTidspunkt: new Date().toISOString() })
+  .withSvar({ svarType: "KOMMER_IKKE", svarTekst: "Jeg kommer ikke!", svarTidspunkt: new Date().toISOString() })
   .build();
 
 export const dialogmoteNyttTidStedScenario: Brev[] = [innkallingsBrev, nyttTidStedBrev];
