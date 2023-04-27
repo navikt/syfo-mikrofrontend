@@ -4,8 +4,9 @@ import { apiUrl } from "./api/urls";
 import "@navikt/ds-css";
 import { Fetcher } from "swr";
 import { Brev } from "./types/shared/brev";
-import { DialogmoteInnkalt } from "./components/DialogmoteInnkalt";
-import { DialogmoteNyttTidSted } from "./components/DialogmoteNyttTidSted";
+import { DialogmoteInnkallingPanel } from "./components/DialogmoteInnkallingPanel";
+import React from "react";
+import { DialogmoteFlyttetPanel } from "./components/DialogmoteFlyttetPanel";
 
 function App() {
   const fetchBrev: Fetcher<Brev[], string> = (path) => get(path);
@@ -17,9 +18,21 @@ function App() {
 
     switch (latestBrev.brevType) {
       case "INNKALT":
-        return <DialogmoteInnkalt brev={latestBrev} />;
+        return (
+          <DialogmoteInnkallingPanel
+            attending={latestBrev.svar?.svarType || null}
+            place={latestBrev.sted}
+            date={latestBrev.tid}
+          />
+        );
       case "NYTT_TID_STED":
-        return <DialogmoteNyttTidSted brev={latestBrev} />;
+        return (
+          <DialogmoteFlyttetPanel
+            attending={latestBrev.svar?.svarType || null}
+            place={latestBrev.sted}
+            date={latestBrev.tid}
+          />
+        );
       default:
         return null;
     }

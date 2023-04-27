@@ -1,7 +1,7 @@
 import { SvarTypeDTO } from "../../schema/brevSchema";
 import { ReactElement } from "react";
 import { JegDeltarBoks } from "./JegDeltarBoks";
-import { KommerIkkeBoks } from "./KommerIkkeBoks";
+import { ForesporselSendtBoks } from "./ForesporselSendtBoks";
 import { NyttTidStedBoks } from "./NyttTidStedBoks";
 import { IkkeSvartBoks } from "./IkkeSvartBoks";
 
@@ -14,7 +14,7 @@ export const AttendingDialogmote = ({ attending }: AttendingDialogmoteProps): Re
     case "KOMMER":
       return <JegDeltarBoks />;
     case "KOMMER_IKKE":
-      return <KommerIkkeBoks />;
+      return <ForesporselSendtBoks />;
     case "NYTT_TID_STED":
       return <NyttTidStedBoks />;
     default:

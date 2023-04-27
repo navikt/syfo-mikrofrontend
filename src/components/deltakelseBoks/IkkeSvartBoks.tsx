@@ -1,5 +1,5 @@
 import { ExclamationmarkTriangleIcon } from "@navikt/aksel-icons";
-import { InfoBox } from "../InfoBox";
+import { InfoBox } from "../infobox/InfoBox";
 import React from "react";
 
 export const IkkeSvartBoks = () => {
