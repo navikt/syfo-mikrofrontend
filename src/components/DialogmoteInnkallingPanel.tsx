@@ -5,7 +5,7 @@ import { OnskerAvlysePanel } from "./panels/OnskerAvlysePanel";
 import { OnskerEndreTidStedPanel } from "./panels/OnskerEndreTidStedPanel";
 import { IkkeSvartPanel } from "./panels/IkkeSvartPanel";
 
-const innkallingText = "Du har mottatt en innkalling til Dialogmøte.";
+const innkallingText = "Du har mottatt en innkalling til Dialogmøte";
 
 interface Props {
   date: string;
