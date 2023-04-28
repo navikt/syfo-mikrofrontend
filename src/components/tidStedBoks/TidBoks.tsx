@@ -1,4 +1,4 @@
-import { CalendarIcon, PinIcon } from "@navikt/aksel-icons";
+import { CalendarIcon } from "@navikt/aksel-icons";
 import React from "react";
 import { BodyShort } from "@navikt/ds-react";
 import { IconWrapper } from "../icon/IconWrapper";
@@ -7,11 +7,10 @@ import { BaseBox } from "../infobox/BaseBox";
 import { Row } from "../row/Row";
 
 interface Props {
-  sted: string;
   tid: string;
 }
 
-export const TidStedBoks = ({ sted, tid }: Props) => {
+export const TidBoks = ({ tid }: Props) => {
   return (
     <BaseBox background={"var(--a-gray-200)"}>
       <Row>
@@ -19,12 +18,6 @@ export const TidStedBoks = ({ sted, tid }: Props) => {
           <CalendarIcon title="a11y-title" fontSize="1.5rem" />
         </IconWrapper>
         <BodyShort size={"small"}>{getLongDateFormat(tid)}</BodyShort>
-      </Row>
-      <Row>
-        <IconWrapper>
-          <PinIcon title="a11y-title" fontSize="1.5rem" />
-        </IconWrapper>
-        <BodyShort size={"small"}>{sted}</BodyShort>
       </Row>
     </BaseBox>
   );

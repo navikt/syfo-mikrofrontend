@@ -5,7 +5,7 @@ import React from "react";
 export const NyttTidStedBoks = () => {
   return (
     <InfoBox
-      text="Du har bedt om å endre tid eller sted"
+      text="Du ønsker å endre tid eller sted"
       icon={<QuestionmarkDiamondIcon title="a11y-title" fontSize="1.5rem" />}
       background={"var(--surface-warning-subtle-hover, #FFD799);"}
     />

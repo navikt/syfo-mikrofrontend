@@ -2,22 +2,21 @@ import { BasePanel } from "./BasePanel";
 import { Column } from "../columns/Column";
 import React from "react";
 import { ForesporselSendtBoks } from "../deltakelseBoks/ForesporselSendtBoks";
-import { HeadingAndTextColumn } from "../columns/HeadingAndTextColumn";
-import { TidStedBoks } from "../tidStedBoks/TidStedBoks";
+import { LeftColumn } from "../columns/LeftColumn";
+import { TidBoks } from "../tidStedBoks/TidBoks";
 
 interface Props {
-  place: string;
   date: string;
 }
 
-export const OnskerAvlysePanel = ({ place, date }: Props) => {
+export const OnskerAvlysePanel = ({ date }: Props) => {
   return (
     <BasePanel>
-      <HeadingAndTextColumn text="Du har bedt om å avlyse Dialogmøtet" />
+      <LeftColumn text="Du ønsker å avlyse møtet" />
 
       <Column gap={"0.5rem"}>
         <ForesporselSendtBoks />
-        <TidStedBoks sted={place} tid={date} />
+        <TidBoks tid={date} />
       </Column>
     </BasePanel>
   );
