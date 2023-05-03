@@ -18,21 +18,9 @@ function App() {
 
     switch (latestBrev.brevType) {
       case "INNKALT":
-        return (
-          <DialogmoteInnkallingPanel
-            attending={latestBrev.svar?.svarType || null}
-            place={latestBrev.sted}
-            date={latestBrev.tid}
-          />
-        );
+        return <DialogmoteInnkallingPanel attending={latestBrev.svar?.svarType || null} date={latestBrev.tid} />;
       case "NYTT_TID_STED":
-        return (
-          <DialogmoteFlyttetPanel
-            attending={latestBrev.svar?.svarType || null}
-            place={latestBrev.sted}
-            date={latestBrev.tid}
-          />
-        );
+        return <DialogmoteFlyttetPanel attending={latestBrev.svar?.svarType || null} date={latestBrev.tid} />;
       default:
         return null;
     }

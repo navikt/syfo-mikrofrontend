@@ -2,23 +2,22 @@ import { BasePanel } from "./BasePanel";
 import { Column } from "../columns/Column";
 import React from "react";
 import { IkkeSvartBoks } from "../deltakelseBoks/IkkeSvartBoks";
-import { TidStedBoks } from "../tidStedBoks/TidStedBoks";
-import { HeadingAndTextColumn } from "../columns/HeadingAndTextColumn";
+import { TidBoks } from "../tidBoks/TidBoks";
+import { LeftColumn } from "../columns/LeftColumn";
 
 interface Props {
   infoText: string;
   date: string;
-  place: string;
 }
 
-export const IkkeSvartPanel = ({ infoText, date, place }: Props) => {
+export const IkkeSvartPanel = ({ infoText, date }: Props) => {
   return (
     <BasePanel>
-      <HeadingAndTextColumn text={infoText} />
+      <LeftColumn text={infoText} />
 
       <Column gap={"0.5rem"}>
         <IkkeSvartBoks />
-        <TidStedBoks sted={place} tid={date} />
+        <TidBoks tid={date} />
       </Column>
     </BasePanel>
   );

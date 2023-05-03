@@ -2,23 +2,21 @@ import { BasePanel } from "./BasePanel";
 import { Column } from "../columns/Column";
 import React from "react";
 import { JegDeltarBoks } from "../deltakelseBoks/JegDeltarBoks";
-import { TidStedBoks } from "../tidStedBoks/TidStedBoks";
-import { HeadingAndTextColumn } from "../columns/HeadingAndTextColumn";
+import { TidBoks } from "../tidBoks/TidBoks";
+import { LeftColumn } from "../columns/LeftColumn";
 
 interface Props {
-  infoText: string;
   date: string;
-  place: string;
 }
 
-export const JegKommerPanel = ({ infoText, date, place }: Props) => {
+export const JegKommerPanel = ({ date }: Props) => {
   return (
     <BasePanel>
-      <HeadingAndTextColumn text={infoText} />
+      <LeftColumn text={"Innkalling til dialogmøte"} />
 
       <Column gap={"0.5rem"}>
         <JegDeltarBoks />
-        <TidStedBoks sted={place} tid={date} />
+        <TidBoks tid={date} />
       </Column>
     </BasePanel>
   );

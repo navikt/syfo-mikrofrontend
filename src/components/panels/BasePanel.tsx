@@ -5,10 +5,10 @@ import { LinkPanel } from "@navikt/ds-react";
 
 const StyledLinkPanel = styled(LinkPanel)`
   .navds-link-panel__content {
-    width: 100%;
+    width: 100% !important;
   }
-  background-color: #f7f7f7;
-  border-radius: 0.5rem;
+  background-color: #f7f7f7 !important;
+  border-radius: 0.5rem !important;
 `;
 
 const LinkPanelContent = styled.div`
