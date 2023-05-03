@@ -2,7 +2,7 @@ import { BasePanel } from "./BasePanel";
 import { Column } from "../columns/Column";
 import React from "react";
 import { JegDeltarBoks } from "../deltakelseBoks/JegDeltarBoks";
-import { TidBoks } from "../tidStedBoks/TidBoks";
+import { TidBoks } from "../tidBoks/TidBoks";
 import { LeftColumn } from "../columns/LeftColumn";
 
 interface Props {

@@ -3,7 +3,7 @@ import { Column } from "../columns/Column";
 import React from "react";
 import { ForesporselSendtBoks } from "../deltakelseBoks/ForesporselSendtBoks";
 import { LeftColumn } from "../columns/LeftColumn";
-import { TidBoks } from "../tidStedBoks/TidBoks";
+import { TidBoks } from "../tidBoks/TidBoks";
 
 interface Props {
   date: string;
