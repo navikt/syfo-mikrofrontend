@@ -30,7 +30,7 @@ export const BasePanel = ({ svar, brevType, children }: Props) => {
     <StyledLinkPanel
       href={`${dialogmoteUrl}/moteinnkalling`}
       border={false}
-      onClick={() => logEvent("Navigerer til møtebehov", { svar: svar, brevType: brevType })}
+      onClick={() => logEvent("Navigerer til møteinnkalling", { svar: svar, brevType: brevType })}
     >
       <LinkPanelContent>{children}</LinkPanelContent>
     </StyledLinkPanel>
