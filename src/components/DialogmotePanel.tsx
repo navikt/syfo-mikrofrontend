@@ -6,8 +6,6 @@ import { OnskerEndreTidStedPanel } from "./panels/OnskerEndreTidStedPanel";
 import { IkkeSvartPanel } from "./panels/IkkeSvartPanel";
 import { BrevType } from "../types/client/brev";
 
-const innkallingText = "Innkalling til dialogmøte";
-
 interface Props {
   date: string;
   attending: SvarTypeDTO | null;
@@ -23,6 +21,6 @@ export const DialogmotePanel = ({ date, attending, brevType }: Props) => {
     case "NYTT_TID_STED":
       return <OnskerEndreTidStedPanel date={date} brevType={brevType} />;
     default:
-      return <IkkeSvartPanel infoText={innkallingText} date={date} brevType={brevType} />;
+      return <IkkeSvartPanel date={date} brevType={brevType} />;
   }
 };
