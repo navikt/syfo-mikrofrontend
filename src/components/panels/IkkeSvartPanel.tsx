@@ -4,15 +4,17 @@ import React from "react";
 import { IkkeSvartBoks } from "../deltakelseBoks/IkkeSvartBoks";
 import { TidBoks } from "../tidBoks/TidBoks";
 import { LeftColumn } from "../columns/LeftColumn";
+import { BrevType } from "../../types/client/brev";
 
 interface Props {
   infoText: string;
   date: string;
+  brevType: BrevType;
 }
 
-export const IkkeSvartPanel = ({ infoText, date }: Props) => {
+export const IkkeSvartPanel = ({ infoText, date, brevType }: Props) => {
   return (
-    <BasePanel>
+    <BasePanel svar={"IKKE_SVART"} brevType={brevType}>
       <LeftColumn text={infoText} />
 
       <Column gap={"0.5rem"}>
