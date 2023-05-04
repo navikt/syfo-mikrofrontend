@@ -6,13 +6,17 @@ import { TidBoks } from "../tidBoks/TidBoks";
 import { LeftColumn } from "../columns/LeftColumn";
 import { BrevType } from "../../types/client/brev";
 
+const innkallingText = "Innkalling til dialogmøte";
+const motetErFlyttetText = "Møtet med NAV er flyttet";
+
 interface Props {
-  infoText: string;
   date: string;
   brevType: BrevType;
 }
 
-export const IkkeSvartPanel = ({ infoText, date, brevType }: Props) => {
+export const IkkeSvartPanel = ({ date, brevType }: Props) => {
+  const infoText = brevType === "INNKALT" ? innkallingText : motetErFlyttetText;
+
   return (
     <BasePanel svar={"IKKE_SVART"} brevType={brevType}>
       <LeftColumn text={infoText} />
