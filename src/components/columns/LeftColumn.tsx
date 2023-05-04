@@ -5,7 +5,7 @@ import { Heading } from "@navikt/ds-react";
 import { HeadingSpacing } from "../typography/typography";
 
 export const HeadingLighter = styled(Heading)`
-  font-weight: var(--a-font-weight-regular);
+  font-weight: var(--a-font-weight-regular) !important;
 `;
 
 interface Props {
