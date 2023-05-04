@@ -4,23 +4,25 @@ import { JegKommerPanel } from "./panels/JegKommerPanel";
 import { OnskerAvlysePanel } from "./panels/OnskerAvlysePanel";
 import { OnskerEndreTidStedPanel } from "./panels/OnskerEndreTidStedPanel";
 import { IkkeSvartPanel } from "./panels/IkkeSvartPanel";
+import { BrevType } from "../types/client/brev";
 
-const motetErFlyttetText = "Dialogmøtet er flyttet";
+const innkallingText = "Innkalling til dialogmøte";
 
 interface Props {
   date: string;
   attending: SvarTypeDTO | null;
+  brevType: BrevType;
 }
 
-export const DialogmoteFlyttetPanel = ({ date, attending }: Props) => {
+export const DialogmotePanel = ({ date, attending, brevType }: Props) => {
   switch (attending) {
     case "KOMMER":
-      return <JegKommerPanel date={date} />;
+      return <JegKommerPanel date={date} brevType={brevType} />;
     case "KOMMER_IKKE":
-      return <OnskerAvlysePanel date={date} />;
+      return <OnskerAvlysePanel date={date} brevType={brevType} />;
     case "NYTT_TID_STED":
-      return <OnskerEndreTidStedPanel date={date} />;
+      return <OnskerEndreTidStedPanel date={date} brevType={brevType} />;
     default:
-      return <IkkeSvartPanel infoText={motetErFlyttetText} date={date} />;
+      return <IkkeSvartPanel infoText={innkallingText} date={date} brevType={brevType} />;
   }
 };

@@ -2,6 +2,8 @@ import { dialogmoteUrl } from "../../api/urls";
 import React, { ReactNode } from "react";
 import styled from "styled-components";
 import { LinkPanel } from "@navikt/ds-react";
+import { BrevType } from "../../types/client/brev";
+import { logEvent } from "../../amplitude/amplitude";
 
 const StyledLinkPanel = styled(LinkPanel)`
   .navds-link-panel__content {
@@ -16,12 +18,20 @@ const LinkPanelContent = styled.div`
   flex-direction: row;
 `;
 
+type Svar = "KOMMER" | "ONSKER_AVLYSE" | "ONSKER_ENDRING" | "IKKE_SVART";
+
 interface Props {
+  svar: Svar;
+  brevType: BrevType;
   children: ReactNode;
 }
-export const BasePanel = ({ children }: Props) => {
+export const BasePanel = ({ svar, brevType, children }: Props) => {
   return (
-    <StyledLinkPanel href={`${dialogmoteUrl}/moteinnkalling`} border={false}>
+    <StyledLinkPanel
+      href={`${dialogmoteUrl}/moteinnkalling`}
+      border={false}
+      onClick={() => logEvent("Navigerer til møtebehov", { svar: svar, brevType: brevType })}
+    >
       <LinkPanelContent>{children}</LinkPanelContent>
     </StyledLinkPanel>
   );
