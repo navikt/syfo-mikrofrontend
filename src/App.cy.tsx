@@ -1,7 +1,6 @@
 import React from "react";
 import App from "./App";
-import { dialogmoteAvlystScenario } from "./mocks/fixtures/dialogmote/dialogmoteAvlystScenario";
-import { createEndringsBrev, createInnkallingsBrev } from "./mocks/fixtures/factories/brev";
+import { createAvlysningsBrev, createEndringsBrev, createInnkallingsBrev } from "./mocks/fixtures/factories/brev";
 
 describe("<App />", () => {
   it("Displays brev of type INNKALLING", () => {
@@ -21,7 +20,7 @@ describe("<App />", () => {
   });
 
   it("Does not display brev of type AVLYST", () => {
-    cy.mountWithStubs(<App />, { dialogmoteResponse: dialogmoteAvlystScenario });
+    cy.mountWithStubs(<App />, { dialogmoteResponse: [createAvlysningsBrev()] });
 
     cy.contains("Dialogmøte").should("not.exist");
   });

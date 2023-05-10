@@ -38,6 +38,13 @@ export const createEndringsBrev = (props?: Partial<Brev>): Brev => {
   };
 };
 
+export const createAvlysningsBrev = (props?: Partial<Brev>): Brev => {
+  return {
+    ...createInnkallingsBrev({ brevType: "AVLYST" }),
+    ...props,
+  };
+};
+
 export const createReferatBrev = (props?: Partial<Brev>): Brev => {
   return {
     ...createInnkallingsBrev(),
