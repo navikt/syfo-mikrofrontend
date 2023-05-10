@@ -1,12 +1,11 @@
 import React from "react";
 import App from "./App";
-import { dialogmoteInnkallingScenario } from "./mocks/fixtures/dialogmote/dialogmoteInnkallingScenario";
-import { dialogmoteNyttTidStedScenario } from "./mocks/fixtures/dialogmote/dialogmoteEndretScenario";
 import { dialogmoteAvlystScenario } from "./mocks/fixtures/dialogmote/dialogmoteAvlystScenario";
+import { createEndringsBrev, createInnkallingsBrev } from "./mocks/fixtures/factories/brev";
 
 describe("<App />", () => {
   it("Displays brev of type INNKALLING", () => {
-    cy.mountWithStubs(<App />, { dialogmoteResponse: dialogmoteInnkallingScenario });
+    cy.mountWithStubs(<App />, { dialogmoteResponse: [createInnkallingsBrev()] });
 
     cy.contains("Dialogmøte");
     cy.contains("Innkalling til dialogmøte");
@@ -14,7 +13,7 @@ describe("<App />", () => {
   });
 
   it("Displays brev of type NYTT_TID_STED", () => {
-    cy.mountWithStubs(<App />, { dialogmoteResponse: dialogmoteNyttTidStedScenario });
+    cy.mountWithStubs(<App />, { dialogmoteResponse: [createEndringsBrev()] });
 
     cy.contains("Dialogmøte");
     cy.contains("Møtet med NAV er flyttet");
