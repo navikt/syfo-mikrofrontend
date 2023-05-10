@@ -1,38 +1,31 @@
-import { dialogmoteUrl } from "../../api/urls";
 import React, { ReactNode } from "react";
 import styled from "styled-components";
-import { LinkPanel } from "@navikt/ds-react";
-import { BrevType } from "../../types/client/brev";
-import { logEvent } from "../../amplitude/amplitude";
+import { Panel } from "@navikt/ds-react";
 
-const StyledLinkPanel = styled(LinkPanel)`
-  .navds-link-panel__content {
-    width: 100% !important;
-  }
+const StyledPanel = styled(Panel)`
+  width: 100% !important;
   background-color: #f7f7f7 !important;
   border-radius: 0.5rem !important;
 `;
 
-const LinkPanelContent = styled.div`
+const PanelContent = styled.div`
   display: flex;
   flex-direction: row;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: var(--a-spacing-4);
+  }
 `;
 
-type Svar = "KOMMER" | "ONSKER_AVLYSE" | "ONSKER_ENDRING" | "IKKE_SVART";
-
 interface Props {
-  svar: Svar;
-  brevType: BrevType;
   children: ReactNode;
 }
-export const BasePanel = ({ svar, brevType, children }: Props) => {
+export const BasePanel = ({ children }: Props) => {
   return (
-    <StyledLinkPanel
-      href={`${dialogmoteUrl}/moteinnkalling`}
-      border={false}
-      onClick={() => logEvent("Navigerer til møteinnkalling", { svar: svar, brevType: brevType })}
-    >
-      <LinkPanelContent>{children}</LinkPanelContent>
-    </StyledLinkPanel>
+    <StyledPanel border={false}>
+      <PanelContent>{children}</PanelContent>
+    </StyledPanel>
   );
 };

@@ -9,7 +9,8 @@
     "prepare": "husky install",
     "lint": "eslint --fix --ext .ts,.tsx,.js,.jsx .",
     "pretty-quick": "pretty-quick --pattern \"**/*.*(ts|tsx)\"",
-    "cypress:open": "cypress open"
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run --component"
   },
   "dependencies": {
     "@navikt/aksel-icons": "^2.8.15",
