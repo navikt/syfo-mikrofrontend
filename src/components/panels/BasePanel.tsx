@@ -10,12 +10,14 @@ const StyledPanel = styled(Panel)`
 
 const PanelContent = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: var(--a-spacing-4);
 
-  @media (max-width: 768px) {
-    flex-direction: column;
-    flex-wrap: wrap;
-    gap: var(--a-spacing-4);
+  @media (min-width: 648px) {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: normal;
   }
 `;
 
