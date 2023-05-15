@@ -1,8 +1,7 @@
-import { DocumentComponent } from "../../../types/client/brev";
-import { Brev } from "../../../types/shared/brev";
 import { leggTilDagerPaDato } from "../../../utils/dateUtils";
+import { BrevDocumentComponentDTO, BrevDTO } from "../../../schema/brevSchema";
 
-export const createDocumentComponent = (props?: Partial<DocumentComponent>): DocumentComponent => {
+export const createDocumentComponent = (props?: Partial<BrevDocumentComponentDTO>): BrevDocumentComponentDTO => {
   return {
     type: "PARAGRAPH",
     title: "TEST_HEADER",
@@ -12,7 +11,7 @@ export const createDocumentComponent = (props?: Partial<DocumentComponent>): Doc
   };
 };
 
-export const createInnkallingsBrev = (props?: Partial<Brev>): Brev => {
+export const createInnkallingsBrev = (props?: Partial<BrevDTO>): BrevDTO => {
   return {
     uuid: "brev_uuid",
     deltakerUuid: "deltaker_uuid",
@@ -31,21 +30,21 @@ export const createInnkallingsBrev = (props?: Partial<Brev>): Brev => {
   };
 };
 
-export const createEndringsBrev = (props?: Partial<Brev>): Brev => {
+export const createEndringsBrev = (props?: Partial<BrevDTO>): BrevDTO => {
   return {
     ...createInnkallingsBrev({ brevType: "NYTT_TID_STED" }),
     ...props,
   };
 };
 
-export const createAvlysningsBrev = (props?: Partial<Brev>): Brev => {
+export const createAvlysningsBrev = (props?: Partial<BrevDTO>): BrevDTO => {
   return {
     ...createInnkallingsBrev({ brevType: "AVLYST" }),
     ...props,
   };
 };
 
-export const createReferatBrev = (props?: Partial<Brev>): Brev => {
+export const createReferatBrev = (props?: Partial<BrevDTO>): BrevDTO => {
   return {
     ...createInnkallingsBrev(),
     brevType: "REFERAT",

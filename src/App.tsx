@@ -1,18 +1,23 @@
 import useSWRImmutable from "swr/immutable";
 import { get } from "./api/api";
-import { apiUrl } from "./api/urls";
-import "@navikt/ds-css";
+import { isdialogmoteApiUrl, syfomotebehovApiUrl } from "./api/urls";
 import { Fetcher } from "swr";
-import { Brev } from "./types/shared/brev";
 import { DialogmotePanel } from "./components/DialogmotePanel";
 import React from "react";
+import { MotebehovPanel } from "./components/panels/motebehov/MotebehovPanel";
+import { MotebehovDTO } from "./schema/motebehovSchema";
+import { BrevDTO } from "./schema/brevSchema";
 
 function App() {
-  const fetchBrev: Fetcher<Brev[], string> = (path) => get(path);
-  const { data } = useSWRImmutable(apiUrl, fetchBrev);
+  const fetchBrev: Fetcher<BrevDTO[], string> = (path) => get(path);
+  const fetchMotebehov: Fetcher<MotebehovDTO, string> = (path) => get(path);
+  const dialogmoteResponse = useSWRImmutable(isdialogmoteApiUrl, fetchBrev);
+  const motebehovResponse = useSWRImmutable(syfomotebehovApiUrl, fetchMotebehov);
 
-  if (data) {
-    const brevArraySorted = data.sort((a, b) => new Date(b.createdAt).valueOf() - new Date(a.createdAt).valueOf());
+  if (dialogmoteResponse.data && dialogmoteResponse.data.length > 0) {
+    const brevArraySorted = dialogmoteResponse.data.sort(
+      (a, b) => new Date(b.createdAt).valueOf() - new Date(a.createdAt).valueOf()
+    );
     const latestBrev = brevArraySorted[0];
 
     if (latestBrev.brevType === "INNKALT" || latestBrev.brevType === "NYTT_TID_STED") {
@@ -25,6 +30,16 @@ function App() {
       );
     }
   }
+
+  if (
+    motebehovResponse.data &&
+    motebehovResponse.data.visMotebehov === true &&
+    motebehovResponse.data.skjemaType === "SVAR_BEHOV" &&
+    motebehovResponse.data.motebehov === null
+  ) {
+    return <MotebehovPanel />;
+  }
+
   return null;
 }
 

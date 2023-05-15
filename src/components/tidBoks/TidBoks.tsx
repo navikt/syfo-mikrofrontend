@@ -15,7 +15,7 @@ export const TidBoks = ({ tid }: Props) => {
     <BaseBox background={"var(--a-gray-200)"}>
       <Row>
         <IconWrapper>
-          <CalendarIcon title="a11y-title" fontSize="1.5rem" />
+          <CalendarIcon title="Dato for Dialogmøte" fontSize="1.5rem" />
         </IconWrapper>
         <BodyShort size={"small"}>{getLongDateFormat(tid)}</BodyShort>
       </Row>
