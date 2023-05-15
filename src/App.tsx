@@ -1,7 +1,6 @@
 import useSWRImmutable from "swr/immutable";
 import { get } from "./api/api";
 import { isdialogmoteApiUrl, syfomotebehovApiUrl } from "./api/urls";
-import "@navikt/ds-css";
 import { Fetcher } from "swr";
 import { DialogmotePanel } from "./components/DialogmotePanel";
 import React from "react";

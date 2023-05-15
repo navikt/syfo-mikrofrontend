@@ -1,4 +1,3 @@
-import "@navikt/ds-css/dist/index.css";
 import "./commands";
 import { mount, MountReturn } from "cypress/react18";
 import { StubResponses, mountWithStubs } from "../utils/mountWithMocks";
