@@ -12,7 +12,15 @@ const StyledLinkPanel = styled(LinkPanel)`
 
 const LinkPanelContent = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: var(--a-spacing-4);
+
+  @media (min-width: 648px) {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: normal;
+  }
 `;
 
 interface Props {
