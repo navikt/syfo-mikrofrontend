@@ -3,7 +3,10 @@ import App from "./App";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  max-width: 444px;
+  width: 100%;
+  @media (min-width: 648px) {
+    max-width: 444px;
+  }
 `;
 
 const Mikrofrontend = () => {
