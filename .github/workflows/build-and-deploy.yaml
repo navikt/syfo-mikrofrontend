@@ -54,7 +54,7 @@ jobs:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: dev-gcp
           RESOURCE: nais/dev-gcp/nais.yaml
-          VAR: image=${{ needs.build.outputs.image }},version=${{ github.sha }}
+          VAR: image=${{ needs.build.outputs.image }}
 
   deploy-prod:
     if: github.ref == 'refs/heads/main'
@@ -68,4 +68,4 @@ jobs:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: prod-gcp
           RESOURCE: nais/prod-gcp/nais.yaml
-          VAR: image=${{ needs.build.outputs.image }},version=${{ github.sha }}
+          VAR: image=${{ needs.build.outputs.image }}
