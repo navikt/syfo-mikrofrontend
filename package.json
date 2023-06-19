@@ -13,8 +13,8 @@
     "cypress:run": "cypress run --component"
   },
   "dependencies": {
-    "@navikt/aksel-icons": "^2.8.15",
-    "@navikt/ds-react": "2.1.6",
+    "@navikt/aksel-icons": "4.1.6",
+    "@navikt/ds-react": "4.1.6",
     "@navikt/nav-dekoratoren-moduler": "^2.0.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -51,7 +51,7 @@
     "rollup-plugin-import-map": "3.0.0",
     "typescript": "4.9.5",
     "uuid": "^9.0.0",
-    "vite": "4.1.1",
+    "vite": "^4.3.9",
     "vite-plugin-css-injected-by-js": "2.4.0",
     "vitest": "0.28.3"
   },

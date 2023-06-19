@@ -2,11 +2,11 @@ import useSWRImmutable from "swr/immutable";
 import { get } from "./api/api";
 import { isdialogmoteApiUrl, syfomotebehovApiUrl } from "./api/urls";
 import { Fetcher } from "swr";
-import { DialogmotePanel } from "./components/DialogmotePanel";
 import React from "react";
 import { MotebehovPanel } from "./components/panels/motebehov/MotebehovPanel";
 import { MotebehovDTO } from "./schema/motebehovSchema";
 import { BrevDTO } from "./schema/brevSchema";
+import { DialogmotePanel } from "./components/panels/moteinnkalling/DialogmotePanel";
 
 function App() {
   const fetchBrev: Fetcher<BrevDTO[], string> = (path) => get(path);
