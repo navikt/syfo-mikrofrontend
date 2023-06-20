@@ -29,18 +29,18 @@ describe("<App />", () => {
   it("Displays svar møtebehov if no upcoming Dialogmøte", () => {
     cy.mountWithStubs(<App />, { dialogmoteResponse: [], motebehovResponse: motebehovUtenSvar });
 
-    cy.contains("Har du behov for dialogmøte?");
+    cy.contains("Trenger du et dialogmøte?");
   });
 
   it("Does not display svar møtebehov if user has upcoming Dialogmøte", () => {
     cy.mountWithStubs(<App />, { dialogmoteResponse: [createInnkallingsBrev()], motebehovResponse: motebehovUtenSvar });
 
-    cy.contains("Har du behov for dialogmøte?").should("not.exist");
+    cy.contains("Trenger du et dialogmøte?").should("not.exist");
   });
 
   it("Does not display svar møtebehov if user has sent svar", () => {
     cy.mountWithStubs(<App />, { motebehovResponse: motebehovMedSvar });
 
-    cy.contains("Har du behov for dialogmøte?").should("not.exist");
+    cy.contains("Trenger du et dialogmøte?").should("not.exist");
   });
 });

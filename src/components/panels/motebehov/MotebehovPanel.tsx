@@ -8,9 +8,9 @@ export const MotebehovPanel = () => {
     <BasePanel
       href={`${dialogmoteUrl}/motebehov/svar`}
       onClick={() => logEvent("Navigerer til svar møtebehov")}
-      heading={{ text: "Har du behov for dialogmøte?", icon: "warning" }}
+      heading={{ text: "Dialogmøte med NAV", icon: "warning" }}
       mainContent={{
-        text: "NAV ønsker din vurdering om du trenger et dialogmøte",
+        text: "Trenger du et dialogmøte?",
         textFormat: "text",
         tag: {
           text: "Du har ikke svart",
