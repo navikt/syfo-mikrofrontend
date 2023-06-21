@@ -3,6 +3,10 @@ import { ExclamationmarkTriangleFillIcon } from "@navikt/aksel-icons";
 import { Heading, Tag } from "@navikt/ds-react";
 
 export const YellowWarningIcon = styled(ExclamationmarkTriangleFillIcon)`
+  align-self: flex-start;
+  flex-shrink: 0;
+  font-size: 1.5rem;
+  height: 24px;
   background: radial-gradient(circle at 50% 57%, var(--a-surface-default) 32%, 0, transparent);
   color: var(--ac-alert-icon-warning-color, var(--a-icon-warning));
 `;
@@ -24,7 +28,6 @@ export const StyledPanel = styled.div`
 
     .dialogmote__title {
       text-decoration: underline;
-      color: var(--ac-link-panel-hover-text, var(--a-text-action));
     }
   }
 `;
@@ -65,4 +68,6 @@ export const ContainedTag = styled(Tag)`
 export const AlertContainer = styled.div`
   display: flex;
   align-items: center;
+  width: 24px;
+  height: 24px;
 `;
