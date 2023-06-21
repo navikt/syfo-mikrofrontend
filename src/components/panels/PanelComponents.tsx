@@ -39,8 +39,11 @@ export const HeadingRow = styled.div`
   width: 100%;
   align-items: center;
   justify-content: space-between;
-  padding: var(--a-spacing-4);
   border-bottom: 1px solid #0000001a;
+  padding: var(--a-spacing-4) var(--a-spacing-4) var(--a-spacing-3);
+  @media (min-width: 648px) {
+    padding: var(--a-spacing-5) var(--a-spacing-5) var(--a-spacing-4);
+  }
 `;
 
 export const MainContentRow = styled.div`
@@ -49,7 +52,10 @@ export const MainContentRow = styled.div`
   flex-direction: row;
   width: 100%;
   align-items: center;
-  padding: var(--a-spacing-4);
+  padding: var(--a-spacing-3) var(--a-spacing-4) var(--a-spacing-4);
+  @media (min-width: 648px) {
+    padding: var(--a-spacing-4) var(--a-spacing-5) var(--a-spacing-5);
+  }
 `;
 
 export const MainContentText = styled(Heading)`
