@@ -9,6 +9,7 @@ export const YellowWarningIcon = styled(ExclamationmarkTriangleFillIcon)`
   height: 24px;
   background: radial-gradient(circle at 50% 57%, var(--a-surface-default) 32%, 0, transparent);
   color: var(--ac-alert-icon-warning-color, var(--a-icon-warning));
+  box-shadow: var(--a-shadow-xsmall);
 `;
 
 export const StyledPanel = styled.div`
@@ -20,7 +21,7 @@ export const StyledPanel = styled.div`
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 0 0.5px 0 rgba(0, 0, 0, 0.18);
 
   &:hover {
-    box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.08), 0 1px 3px 0 rgba(0, 0, 0, 0.08), 0 0 0.5px 0 rgba(0, 0, 0, 0.08);
+    box-shadow: var(--a-shadow-small);
 
     .navds-link-panel__chevron {
       transform: translateX(4px);
