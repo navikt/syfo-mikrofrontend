@@ -8,17 +8,16 @@ describe("<App />", () => {
   it("Displays brev of type INNKALLING", () => {
     cy.mountWithStubs(<App />, { dialogmoteResponse: [createInnkallingsBrev()] });
 
-    cy.contains("Dialogmøte");
-    cy.contains("Innkalling til dialogmøte");
+    cy.contains("Dialogmøte med NAV");
     cy.contains("Du har ikke svart");
   });
 
   it("Displays brev of type NYTT_TID_STED", () => {
     cy.mountWithStubs(<App />, { dialogmoteResponse: [createEndringsBrev()] });
 
-    cy.contains("Dialogmøte");
+    cy.contains("Dialogmøte med NAV");
     cy.contains("Møtet med NAV er flyttet");
-    cy.contains("Du har ikke svart");
+    cy.contains("Se endringene og svar");
   });
 
   it("Does not display brev of type AVLYST", () => {
@@ -30,20 +29,18 @@ describe("<App />", () => {
   it("Displays svar møtebehov if no upcoming Dialogmøte", () => {
     cy.mountWithStubs(<App />, { dialogmoteResponse: [], motebehovResponse: motebehovUtenSvar });
 
-    cy.contains("Vurder behov for dialogmøte");
+    cy.contains("Trenger du et dialogmøte?");
   });
 
   it("Does not display svar møtebehov if user has upcoming Dialogmøte", () => {
     cy.mountWithStubs(<App />, { dialogmoteResponse: [createInnkallingsBrev()], motebehovResponse: motebehovUtenSvar });
 
-    cy.contains("Vurder behov for dialogmøte").should("not.exist");
-    cy.contains("Innkalling til dialogmøte");
+    cy.contains("Trenger du et dialogmøte?").should("not.exist");
   });
 
   it("Does not display svar møtebehov if user has sent svar", () => {
     cy.mountWithStubs(<App />, { motebehovResponse: motebehovMedSvar });
 
-    cy.contains("Dialogmøte").should("not.exist");
-    cy.contains("Vurder behov for dialogmøte").should("not.exist");
+    cy.contains("Trenger du et dialogmøte?").should("not.exist");
   });
 });
