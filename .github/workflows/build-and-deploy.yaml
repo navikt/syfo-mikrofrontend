@@ -4,6 +4,9 @@ jobs:
   build:
     name: "build"
     runs-on: "ubuntu-latest"
+    outputs:
+      cdn_url: ${{ steps.extract-manifest-url.outputs.url }}
+      image: ${{ steps.docker-build-push.outputs.image }}
 
     permissions:
       contents: "read"
@@ -27,11 +30,19 @@ jobs:
         run: "npm run build"
 
       - name: cdn-upload
+        id: cdn-upload
         uses: navikt/frontend/actions/cdn-upload/v1@main
         with:
           cdn-team-name: team-esyfo
           source: ./dist/
           destination: "dialogmote-mikrofrontend"
+
+      - name: Extract manifest url
+        id: extract-manifest-url
+        run: |
+          files="${{ steps.cdn-upload.outputs.uploaded }}"
+          first_file=$(echo $files | cut -d',' -f1)
+          echo "url=https://cdn.nav.no/$first_file" >> $GITHUB_OUTPUT
 
       - name: Build and push docker image
         uses: nais/docker-build-push@v0
@@ -40,8 +51,6 @@ jobs:
           team: team-esyfo
           identity_provider: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }}
           project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }}
-    outputs:
-      image: ${{ steps.docker-build-push.outputs.image }}
 
   deploy-dev:
     runs-on: "ubuntu-latest"
@@ -56,6 +65,15 @@ jobs:
           RESOURCE: nais/dev-gcp/nais.yaml
           VAR: image=${{ needs.build.outputs.image }}
 
+  update-manifest-dev:
+    needs: "build"
+    uses: navikt/tms-deploy/.github/workflows/oppdater-mikrofrontend-manifest.yaml@main
+    with:
+      cluster: dev-gcp
+      id: syfo-dialog
+      url: ${{needs.build.outputs.cdn_url}}
+    secrets: inherit
+
   deploy-prod:
     if: github.ref == 'refs/heads/main'
     runs-on: "ubuntu-latest"
@@ -69,3 +87,13 @@ jobs:
           CLUSTER: prod-gcp
           RESOURCE: nais/prod-gcp/nais.yaml
           VAR: image=${{ needs.build.outputs.image }}
+
+  update-manifest-prod:
+    if: github.ref == 'refs/heads/main'
+    needs: "build"
+    uses: navikt/tms-deploy/.github/workflows/oppdater-mikrofrontend-manifest.yaml@main
+    with:
+      cluster: prod-gcp
+      id: syfo-dialog
+      url: ${{needs.build.outputs.cdn_url}}
+    secrets: inherit
