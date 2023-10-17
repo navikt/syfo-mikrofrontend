@@ -1,8 +1,14 @@
 FROM node:16-alpine
-WORKDIR /dialogmote-mikrofrontend
-
 ENV NODE_ENV production
 
-COPY dist ./dist
+WORKDIR usr/src/app
+COPY server server/
+COPY dist dist/
 
-EXPOSE 8080
+WORKDIR server
+RUN npm install
+
+CMD ["node", "./server.js"]
+
+ENV PORT=8080
+EXPOSE $PORT
