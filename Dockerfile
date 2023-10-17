@@ -1,5 +1,5 @@
 FROM node:16-alpine
-WORKDIR /aktivitetskrav-mikrofrontend
+WORKDIR /dialogmote-mikrofrontend
 
 ENV NODE_ENV production
 
