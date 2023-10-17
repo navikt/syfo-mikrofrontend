@@ -15,6 +15,12 @@ export const getEnvironment = () => {
 
 type EnvUrl = { development: string; production: string; local: string };
 
+const FARO_TELEMETRY_URL: EnvUrl = {
+  local: "NOT_USED",
+  development: "https://telemetry.ekstern.dev.nav.no/collect",
+  production: "https://telemetry.nav.no/collect",
+};
+
 const ISDIALOGMOTE_API_URL: EnvUrl = {
   local: "http://localhost:3000/api/dialogmote",
   development: `https://www.intern.dev.nav.no/esyfo-proxy/api/dialogmote`,
@@ -36,3 +42,5 @@ const DIALOGMOTE_URL: EnvUrl = {
 export const dialogmoteUrl = DIALOGMOTE_URL[getEnvironment()];
 export const isdialogmoteApiUrl = ISDIALOGMOTE_API_URL[getEnvironment()];
 export const syfomotebehovApiUrl = SYFOMOTEBEHOV_API_URL[getEnvironment()];
+
+export const faroTelemetryUrl = FARO_TELEMETRY_URL[getEnvironment()];
