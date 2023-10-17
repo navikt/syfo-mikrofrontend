@@ -16,15 +16,15 @@ export const getEnvironment = () => {
 type EnvUrl = { development: string; production: string; local: string };
 
 const ISDIALOGMOTE_API_URL: EnvUrl = {
-  local: "http://localhost:3000/api/v2/arbeidstaker/brev",
-  development: `https://www.intern.dev.nav.no/tms-min-side-proxy/syk/dialogmote/api/v2/arbeidstaker/brev`,
-  production: `https://www.nav.no/tms-min-side-proxy/syk/dialogmote/api/v2/arbeidstaker/brev`,
+  local: "http://localhost:3000/api/dialogmote",
+  development: `https://www.intern.dev.nav.no/esyfo-proxy/api/dialogmote`,
+  production: `https://www.nav.no/esyfo-proxy/api/dialogmote`,
 };
 
 const SYFOMOTEBEHOV_API_URL: EnvUrl = {
-  local: "http://localhost:3000/syfomotebehov/api/v3/arbeidstaker/motebehov/all",
-  development: `https://www.intern.dev.nav.no/tms-min-side-proxy/motebehov/syfomotebehov/api/v3/arbeidstaker/motebehov/all`,
-  production: `https://www.nav.no/tms-min-side-proxy/motebehov/syfomotebehov/api/v3/arbeidstaker/motebehov/all`,
+  local: "http://localhost:3000/api/motebehov",
+  development: `https://www.intern.dev.nav.no/esyfo-proxy/api/motebehov`,
+  production: `https://www.nav.no/esyfo-proxy/api/motebehov`,
 };
 
 const DIALOGMOTE_URL: EnvUrl = {
