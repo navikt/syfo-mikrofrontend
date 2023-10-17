@@ -10,12 +10,9 @@ export interface StubResponses {
 }
 
 export const mountWithStubs = (componentUnderTest: JSX.Element, stubResponses: StubResponses) => {
-  cy.intercept("/api/v2/arbeidstaker/brev", stubResponses.dialogmoteResponse || []).as("hentBrev");
+  cy.intercept("/api/dialogmote", stubResponses.dialogmoteResponse || []).as("hentBrev");
 
-  cy.intercept(
-    "/syfomotebehov/api/v3/arbeidstaker/motebehov/all",
-    stubResponses.motebehovResponse || ingenMotebehov
-  ).as("hentMotebehov");
+  cy.intercept("/api/motebehov", stubResponses.motebehovResponse || ingenMotebehov).as("hentMotebehov");
 
   return mount(<SWRConfig value={{ provider: () => new Map() }}>{componentUnderTest}</SWRConfig>);
 };
