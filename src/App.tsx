@@ -14,6 +14,9 @@ function App() {
   const dialogmoteResponse = useSWRImmutable(isdialogmoteApiUrl, fetchBrev);
   const motebehovResponse = useSWRImmutable(syfomotebehovApiUrl, fetchMotebehov);
 
+  if (dialogmoteResponse.error) throw dialogmoteResponse.error;
+  if (motebehovResponse.error) throw motebehovResponse.error;
+
   if (dialogmoteResponse.data && dialogmoteResponse.data.length > 0) {
     const brevArraySorted = dialogmoteResponse.data.sort(
       (a, b) => new Date(b.createdAt).valueOf() - new Date(a.createdAt).valueOf()
