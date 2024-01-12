@@ -38,7 +38,7 @@ export const DialogmotePanel = ({ date, attending, brevType }: Props) => {
         };
       case "KOMMER_IKKE":
         return {
-          text: "Du har takket nei",
+          text: "Du ønsker å avlyse",
           variant: "neutral-moderate",
         };
       case "NYTT_TID_STED":
