@@ -48,6 +48,7 @@ jobs:
           echo "url=https://cdn.nav.no/$first_file" >> $GITHUB_OUTPUT
 
       - name: Build and push docker image
+        if: ${{ github.event.pull_request.user.login != 'dependabot[bot]' }}
         uses: nais/docker-build-push@v0
         id: docker-build-push
         with:
@@ -56,6 +57,7 @@ jobs:
           project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }}
 
   update-manifest-dev:
+    if: ${{ github.event.pull_request.user.login != 'dependabot[bot]' }}
     needs: "build"
     uses: navikt/tms-deploy/.github/workflows/oppdater-mikrofrontend-manifest.yaml@main
     with:
