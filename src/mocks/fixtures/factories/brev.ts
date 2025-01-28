@@ -12,15 +12,17 @@ export const createDocumentComponent = (props?: Partial<BrevDocumentComponentDTO
 };
 
 export const createInnkallingsBrev = (props?: Partial<BrevDTO>): BrevDTO => {
+  const defaultDate = leggTilDagerPaDato(new Date(), -7).toISOString();
+
   return {
     uuid: "brev_uuid",
     deltakerUuid: "deltaker_uuid",
-    createdAt: leggTilDagerPaDato(new Date(), -7).toISOString(),
+    createdAt: props?.createdAt || defaultDate,
     brevType: "INNKALT",
     digitalt: true,
     fritekst: "Her kommer det en fritekst",
     sted: "sted-felt",
-    tid: leggTilDagerPaDato(new Date(), -7).toISOString(),
+    tid: props?.createdAt || defaultDate,
     videoLink: "videolenke-felt",
     document: [createDocumentComponent(), createDocumentComponent()],
     virksomhetsnummer: "virksomhetsnummer-felt",
@@ -45,11 +47,27 @@ export const createAvlysningsBrev = (props?: Partial<BrevDTO>): BrevDTO => {
 };
 
 export const createReferatBrev = (props?: Partial<BrevDTO>): BrevDTO => {
+  const defaultDate = leggTilDagerPaDato(new Date(), -67).toISOString();
+  const defaultDate2 = leggTilDagerPaDato(new Date(), -77).toISOString();
+
   return {
     ...createInnkallingsBrev(),
     brevType: "REFERAT",
-    createdAt: leggTilDagerPaDato(new Date(), -67).toISOString(),
-    tid: leggTilDagerPaDato(new Date(), -77).toISOString(),
+    createdAt: props?.createdAt || defaultDate,
+    tid: props?.createdAt || defaultDate2,
+    ...props,
+  };
+};
+
+export const createReferatEndretBrev = (props?: Partial<BrevDTO>): BrevDTO => {
+  const defaultDate = leggTilDagerPaDato(new Date(), -87).toISOString();
+  const defaultDate2 = leggTilDagerPaDato(new Date(), -97).toISOString();
+
+  return {
+    ...createInnkallingsBrev(),
+    brevType: "REFERAT_ENDRET",
+    createdAt: props?.createdAt || defaultDate,
+    tid: props?.createdAt || defaultDate2,
     ...props,
   };
 };
