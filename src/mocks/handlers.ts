@@ -14,7 +14,8 @@ export const handlers = [
       createInnkallingsBrev({ createdAt: leggTilDagerPaDato(new Date(), -10).toISOString() }),
       createAvlysningsBrev({ createdAt: leggTilDagerPaDato(new Date(), -6).toISOString() }),
       createInnkallingsBrev({ createdAt: leggTilDagerPaDato(new Date(), -5).toISOString() }),
-      // createReferatBrev({ createdAt: leggTilDagerPaDato(new Date(), -4).toISOString() }),
+      createReferatBrev({ createdAt: leggTilDagerPaDato(new Date(), -4).toISOString() }),
+      createInnkallingsBrev({ createdAt: leggTilDagerPaDato(new Date(), -3).toISOString() }),
       createReferatEndretBrev({ createdAt: leggTilDagerPaDato(new Date(), -103).toISOString() }),
     ]);
   }),
