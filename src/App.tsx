@@ -18,9 +18,9 @@ function App() {
   if (motebehovResponse.error) throw motebehovResponse.error;
 
   if (dialogmoteResponse.data && dialogmoteResponse.data.length > 0) {
-    const brevArraySorted = dialogmoteResponse.data.sort(
-      (a, b) => new Date(b.createdAt).valueOf() - new Date(a.createdAt).valueOf()
-    );
+    const brevArraySorted = dialogmoteResponse.data
+      .filter((brev) => brev.brevType !== "REFERAT_ENDRET")
+      .sort((a, b) => new Date(b.createdAt).valueOf() - new Date(a.createdAt).valueOf());
     const latestBrev = brevArraySorted[0];
 
     if (latestBrev.brevType === "INNKALT" || latestBrev.brevType === "NYTT_TID_STED") {
